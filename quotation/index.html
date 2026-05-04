@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quotation | Sree Aaradhya Clicks</title>
+  <meta name="description" content="Request a personalized quotation for your wedding photography, cinematography, or special event coverage from Sree Aaradhya Clicks.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .quotation-hero {
+      padding: 180px 0 100px;
+      background: linear-gradient(180deg, var(--black) 0%, var(--dark-bg) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quotation-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(91, 26, 138, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quotation-container {
+      max-width: 900px;
+      margin: -60px auto 100px;
+      position: relative;
+      z-index: 10;
+    }
+    .quotation-card {
+      background: var(--dark-card);
+      border: var(--border-subtle);
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: var(--shadow-card);
+    }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .service-checkbox {
+      position: relative;
+      display: block;
+    }
+    .service-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .service-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      background: var(--gray-900);
+      border: 1px solid var(--gray-800);
+      border-radius: 6px;
+      color: var(--gray-300);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .service-checkbox input:checked + .service-label {
+      background: rgba(91, 26, 138, 0.15);
+      border-color: var(--purple-brand);
+      color: var(--white);
+    }
+    .service-checkbox input:checked + .service-label i {
+      color: var(--orange-light);
+    }
+    .budget-range {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .quotation-footer {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--black-light);
+      border-top: var(--border-subtle);
+    }
+    @media (max-width: 768px) {
+      .quotation-card {
+        padding: 30px 20px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation (Simplified for focus) -->
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo"><img src="/assets/logo.png" alt="Sree Aaradhya Clicks Logo"></a>
+      <div class="nav-links">
+        <a href="/index.html">Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="quotation-hero">
+    <div class="container">
+      <span class="section-eyebrow">Get a Quote</span>
+      <h1 class="section-title">Customize Your <span class="gradient-text">Photography</span> Package</h1>
+      <p class="section-subtitle">Tell us about your event and we'll create a bespoke experience for you.</p>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <div class="quotation-container">
+    <div class="container">
+      <div class="quotation-card">
+        <form id="quotationForm">
+          
+          <!-- Personal Info -->
+          <div class="form-section">
+            <h3 class="form-section-title"><i class="fas fa-user-circle"></i> Personal Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-name">Full Name</label>
+                <input type="text" id="q-name" name="name" placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="q-phone">Phone Number</label>
+                <input type="tel" id="q-phone" name="phone" placeholder="Enter your phone number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="q-email">Email Address</label>
+              <input type="email" id="q-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+
+          <!-- Event Details -->
+          <div class="form-section">
+            <h3 class="form-section-title"><i class="fas fa-calendar-alt"></i> Event Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-eventType">Event Type</label>
+                <select id="q-eventType" name="eventType" required>
+                  <option value="" disabled selected>Select Event Type</option>
+                  <option value="wedding">Full Wedding Package</option>
+                  <option value="engagement">Engagement</option>
+                  <option value="prewedding">Pre-Wedding Shoot</option>
+                  <option value="birthday">Birthday Celebration</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="other">Other Celebration</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="q-eventDate">Event Date</label>
+                <input type="date" id="q-eventDate" name="eventDate" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="q-location">Venue / Location</label>
+              <input type="text" id="q-location" name="location" placeholder="e.g. Hyatt Regency, Hyderabad" required>
+            </div>
+          </div>
+
+          <!-- Services Selection -->
+          <div class="form-section">
+            <h3 class="form-section-title"><i class="fas fa-camera-retro"></i> Services Interested In</h3>
+            <div class="services-grid">
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="traditional-photo">
+                <span class="service-label"><i class="fas fa-camera"></i> Traditional Photo</span>
+              </label>
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="candid-photo">
+                <span class="service-label"><i class="fas fa-bullseye"></i> Candid Photo</span>
+              </label>
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="cinematography">
+                <span class="service-label"><i class="fas fa-film"></i> Cinematography</span>
+              </label>
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="traditional-video">
+                <span class="service-label"><i class="fas fa-video"></i> Traditional Video</span>
+              </label>
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="drone">
+                <span class="service-label"><i class="fas fa-helicopter"></i> Drone Coverage</span>
+              </label>
+              <label class="service-checkbox">
+                <input type="checkbox" name="services" value="album">
+                <span class="service-label"><i class="fas fa-book-open"></i> Premium Album</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Budget & Guests -->
+          <div class="form-section">
+            <h3 class="form-section-title"><i class="fas fa-users"></i> Additional Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-guests">Approx. Guest Count</label>
+                <input type="number" id="q-guests" name="guests" placeholder="e.g. 500">
+              </div>
+              <div class="form-group">
+                <label for="q-budget">Budget Range (Approx)</label>
+                <select id="q-budget" name="budget">
+                  <option value="economy">Economy Package</option>
+                  <option value="standard" selected>Standard Premium</option>
+                  <option value="luxury">Luxury / Royal</option>
+                  <option value="custom">Not sure, need advice</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="q-message">Additional Requests or Notes</label>
+              <textarea id="q-message" name="message" placeholder="Tell us more about your vision..." rows="4"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit" style="width: 100%; justify-content: center;">
+            <i class="fas fa-paper-plane"></i> Submit Quotation Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 <a href="../index.html">Sree Aaradhya Clicks</a>. All Rights Reserved.</p>
+        <p>Crafted with ❤️ for your special moments</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('quotationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = {};
+      const services = [];
+      
+      formData.forEach((value, key) => {
+        if (key === 'services') {
+          services.push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+      data.services = services.join(', ');
+      
+      const submitBtn = this.querySelector('.form-submit');
+      submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Processing...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Request Sent Successfully!';
+        submitBtn.style.background = '#25D366';
+        
+        // WhatsApp Message Construction
+        const phone = '919100689100';
+        const message = encodeURIComponent(
+          `*NEW QUOTATION REQUEST* 📋\n\n` +
+          `*Name:* ${data.name}\n` +
+          `*Phone:* ${data.phone}\n` +
+          `*Event:* ${data.eventType}\n` +
+          `*Date:* ${data.eventDate}\n` +
+          `*Location:* ${data.location}\n` +
+          `*Guests:* ${data.guests || 'N/A'}\n` +
+          `*Budget:* ${data.budget}\n` +
+          `*Services:* ${data.services || 'None selected'}\n` +
+          `*Message:* ${data.message || 'N/A'}`
+        );
+        
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        
+        setTimeout(() => {
+          window.location.href = '../index.html';
+        }, 2000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
